@@ -5,13 +5,11 @@ $errorMessage = null;
 
 if (isset($_GET['city'])) {
     $city = urlencode($_GET['city']);
-    $apiKey = '940425dc6690f21ceca85eb1a81168e9'; // Replace with your actual API key
+    $apiKey = '940425dc6690f21ceca85eb1a81168e9';
 
-    // API URLs
     $currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
     $forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=$apiKey&units=metric";
 
-    // Fetch the current weather data
     $currentWeatherData = @file_get_contents($currentWeatherUrl);
 
     if ($currentWeatherData === FALSE) {
@@ -24,7 +22,6 @@ if (isset($_GET['city'])) {
         }
     }
 
-    // Fetch the forecast data
     $forecastData = @file_get_contents($forecastUrl);
 
     if ($forecastData === FALSE) {
